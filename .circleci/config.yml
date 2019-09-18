@@ -9,6 +9,7 @@ jobs:
      # start proprietary DB using private Docker image
      # with credentials stored in the UI
 
-     - run: cat app.py 
-     #curl 192.168.1.165:8080
+     - run: python app.py 
+     - run: curl http://localhost:8080 
+
 
