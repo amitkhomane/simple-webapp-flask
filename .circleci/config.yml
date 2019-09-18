@@ -1,12 +1,10 @@
 version: 2
 jobs:
  build:
-
     docker:
     # Primary container image where all steps run.
      - image: jazzdd/alpine-flask
-
-   steps:
+    steps:
      - checkout
      # start proprietary DB using private Docker image
      # with credentials stored in the UI
