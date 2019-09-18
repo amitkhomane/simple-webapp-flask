@@ -9,7 +9,7 @@ jobs:
      - checkout
      # start proprietary DB using private Docker image
      # with credentials stored in the UI
-     - run: python app.py
-     - run: curl http://localhost:8080 
+     - run: python app.py &
+  
 
 
