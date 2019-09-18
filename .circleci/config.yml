@@ -1,12 +1,16 @@
 version: 2
 jobs:
  build:
+
     docker:
     # Primary container image where all steps run.
      - image: jazzdd/alpine-flask
+
    steps:
      - checkout
      # start proprietary DB using private Docker image
      # with credentials stored in the UI
+
      - run: cat app.py 
      #curl 192.168.1.165:8080
+
