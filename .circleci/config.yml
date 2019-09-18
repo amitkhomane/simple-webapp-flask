@@ -3,14 +3,13 @@ jobs:
  build:
     docker:
     # Primary container image where all steps run.
-     - image: jazzdd/alpine-flask
+     - image: amitkhomane/flaskapp
 
     steps:
      - checkout
      # start proprietary DB using private Docker image
      # with credentials stored in the UI
-     - run: apt-get update && apt-get install -y sudo && sudo apt-get install curl -y
-     - run: python app.py &
+     - run: python app.py
      - run: curl http://localhost:8080 
 
 
