@@ -18,8 +18,8 @@ jobs:
       - checkout
       # note: omitting caching for brevity
       # quickly install NPM dependencies
-      - npm ci
+      - run: npm ci
       # load balance all tests across 4 CI machines
-      - $(npm bin)/cypress run --parallel
+      - run: $(npm bin)/cypress run --parallel
 
 
