@@ -1,29 +1,28 @@
 version: 2
-# jobs:
-#  build:
-#     docker:
-#     # Primary container image where all steps run.
-#      - image: amitkhomane/flaskapp
-
-#     steps:
-#      - checkout
-#      # start proprietary DB using private Docker image
-#      # with credentials stored in the UI
-#      - run: python app.py &
 jobs:
-  # give any name to job
-  4x-electron:
-    # use Cypress built Docker image with Node 10 and npm 6
+ build:
     docker:
-      - image: cypress/base:10
-    # tells CircleCI to execute this job on 4 machines simultaneously
-    parallelism: 4
+    # Primary container image where all steps run.
+     - image: amitkhomane/flaskapp
+
     steps:
-      - checkout
-      # note: omitting caching for brevity
-      # quickly install NPM dependencies
-      - npm ci
-      # load balance all tests across 4 CI machines
-      - $(npm bin)/cypress run --parallel  
+     - checkout
+     # start proprietary DB using private Docker image
+     # with credentials stored in the UI
+     - run: python app.py &
+# give any name to job
+# 4x-electron:
+#    # use Cypress built Docker image with Node 10 and npm 6
+#    docker:
+#       - image: cypress/base:10
+#    # tells CircleCI to execute this job on 4 machines simultaneously
+#    parallelism: 4
+#    steps:
+#       - checkout
+#       # note: omitting caching for brevity
+#       # quickly install NPM dependencies
+#       - npm ci
+#       # load balance all tests across 4 CI machines
+#       - $(npm bin)/cypress run --parallel
 
 
