@@ -1,6 +1,6 @@
 version: 2
 jobs:
- build:
+ python_deploy:
     docker:
     # Primary container image where all steps run.
      - image: amitkhomane/flaskapp
@@ -10,7 +10,7 @@ jobs:
      # start proprietary DB using private Docker image
      # with credentials stored in the UI
      - run: python app.py &
- build:
+ cypress_test:
     docker:
       - image: cypress/base:10
     parallelism: 4
