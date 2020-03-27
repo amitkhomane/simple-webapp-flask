@@ -21,5 +21,9 @@ jobs:
       - run: npm ci
       # load balance all tests across 4 CI machines
       - run: $(npm bin)/cypress run --parallel
-
-
+workflows:
+   version: 2
+   one_and_two:
+     jobs:
+       - python_deploy
+       - cypress_test
